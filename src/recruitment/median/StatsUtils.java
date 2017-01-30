@@ -103,10 +103,21 @@ public class StatsUtils {
         }
 
         result = Integer.parseInt(file.readLine());
-        result += Integer.parseInt(file.moveLine());
+        file.moveLine();
+        result += Integer.parseInt(file.readLine());
 
         reader.close();
-        return result/2;
+        return result / 2;
+    }
+
+    private static Integer getMedianOfTwo(int numElems) throws FileNotFoundException, IOException {
+        Reader reader = new FileReader(FINAL_CHUNK + TXT);
+        LineNumberReaderWrapper file = new LineNumberReaderWrapper(reader, BUFFER_SIZE);
+        Integer result = Integer.parseInt(file.readLine());
+        file.moveLine();
+        result += Integer.parseInt(file.readLine());
+        reader.close();
+        return result / 2;
     }
 
     /**
@@ -150,6 +161,9 @@ public class StatsUtils {
             reader.get(i).close();
         }
 
+        if (numElems == 2) {
+            return getMedianOfTwo(numElems);
+        }
         if (numElems % 2 == 0) {
             return getMedianEven(numElems);
         } else {

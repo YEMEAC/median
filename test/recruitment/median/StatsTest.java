@@ -21,6 +21,9 @@ public class StatsTest {
     private final static String TEST6 = "test6.txt";
     private final static String TEST7 = "test7.txt";
     private final static String TEST8 = "test8.txt";
+    private final static String TEST9 = "test9.txt";
+    private final static String TEST10 = "test10.txt";
+    private final static String TEST11 = "test11.txt";
     private final static Integer RESULT_TEST1 = 6;
     private final static Integer RESULT_TEST2 = 2;
     private final static Integer RESULT_TEST3 = 1000;
@@ -29,6 +32,9 @@ public class StatsTest {
     private final static Integer RESULT_TEST6 = 58;
     private final static Integer RESULT_TEST7 = 507;
     private final static Integer RESULT_TEST8 = 507;
+    private final static Integer RESULT_TEST9 = 1;
+    private final static Integer RESULT_TEST10 = 5;
+    private final static Integer RESULT_TEST11 = 3;
 
     public StatsTest() {
     }
@@ -128,7 +134,7 @@ public class StatsTest {
         Integer result = Stats.main(args);
         assertEquals(RESULT_TEST7, result);
     }
-    
+
     @Test
     @Ignore
     public void test8() throws Exception {
@@ -137,5 +143,32 @@ public class StatsTest {
 
         Integer result = Stats.main(args);
         assertEquals(RESULT_TEST8, result);
+    }
+
+    @Test
+    public void test9() throws Exception {
+        System.out.println("test9");
+        String[] args = {TEST9};
+
+        Integer result = Stats.main(args);
+        assertEquals(RESULT_TEST9, result);
+    }
+
+    @Test
+    public void test10() throws Exception {
+        System.out.println("test10");
+        String[] args = {TEST10};
+
+        Integer result = Stats.main(args);
+        assertEquals(RESULT_TEST10, result);
+    }
+
+    @Test
+    public void test11() throws Exception {
+        System.out.println("test11");
+        String[] args = {TEST11};
+
+        Integer result = Stats.main(args);
+        assertEquals(RESULT_TEST11, result);
     }
 }
