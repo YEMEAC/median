@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Stats {
 
     //Number of elements in memmory
-    private static final int CHUNK_SIZE = 300;
+    private static final int CHUNK_SIZE = 50;
 
     public static Integer main(String[] args) throws FileNotFoundException, IOException {
 

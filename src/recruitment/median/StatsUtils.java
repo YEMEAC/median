@@ -127,8 +127,8 @@ public class StatsUtils {
 
         int numElems = 0;
         while (chunksWithContent(chunks)) {
-            int idChunkChoosen = -1;
-            int minimum = 1001;
+            int idChunkChoosen = Integer.MIN_VALUE;
+            int minimum = Integer.MAX_VALUE;
             int temp;
             String str;
             for (int i = 0; i < chunks.size(); ++i) {

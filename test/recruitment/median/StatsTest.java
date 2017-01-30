@@ -5,6 +5,7 @@ import java.io.FileFilter;
 import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 /**
  *
@@ -12,14 +13,22 @@ import static org.junit.Assert.*;
  */
 public class StatsTest {
 
-    private final static String TEST0 = "7.txt";
-    private final static String TEST1 = "100.txt";
-    private final static String TEST2 = "1000.txt";
-    private final static String TEST3 = "20000.txt";
-    private final static Integer RESULT_TEST0 = 2;
-    private final static Integer RESULT_TEST1 = 58;
-    private final static Integer RESULT_TEST2 = 507;
-    private final static Integer RESULT_TEST3 = 507;
+    private final static String TEST1 = "test1.txt";
+    private final static String TEST2 = "test2.txt";
+    private final static String TEST3 = "test3.txt";
+    private final static String TEST4 = "test4.txt";
+    private final static String TEST5 = "test5.txt";
+    private final static String TEST6 = "test6.txt";
+    private final static String TEST7 = "test7.txt";
+    private final static String TEST8 = "test8.txt";
+    private final static Integer RESULT_TEST1 = 6;
+    private final static Integer RESULT_TEST2 = 2;
+    private final static Integer RESULT_TEST3 = 1000;
+    private final static Integer RESULT_TEST4 = 3;
+    private final static Integer RESULT_TEST5 = 2000;
+    private final static Integer RESULT_TEST6 = 58;
+    private final static Integer RESULT_TEST7 = 507;
+    private final static Integer RESULT_TEST8 = 507;
 
     public StatsTest() {
     }
@@ -58,57 +67,75 @@ public class StatsTest {
      */
     @Test
 
-    public void testZero() throws Exception {
-        System.out.println("test0");
-        String[] args = {TEST0};
-
-        Integer result = Stats.main(args);
-        assertEquals(RESULT_TEST0, result);
-    }
-
-    /**
-     * Test of main method, of class Stats.
-     *
-     * @throws java.lang.Exception
-     */
-    @Test
-
-    public void testSmall() throws Exception {
-        System.out.println("testSmall");
+    public void test1() throws Exception {
+        System.out.println("test1");
         String[] args = {TEST1};
 
         Integer result = Stats.main(args);
         assertEquals(RESULT_TEST1, result);
     }
 
-    /**
-     * Test of main method, of class Stats.
-     *
-     * @throws java.lang.Exception
-     */
     @Test
-
-    public void testBigger() throws Exception {
-        System.out.println("testBigger");
+    public void test2() throws Exception {
+        System.out.println("test2");
         String[] args = {TEST2};
 
         Integer result = Stats.main(args);
         assertEquals(RESULT_TEST2, result);
     }
 
-    /**
-     * Test of main method, of class Stats.
-     *
-     * @throws java.lang.Exception
-     */
     @Test
-
-    public void testLarge() throws Exception {
-        /*System.out.println("testBigger");
+    public void test3() throws Exception {
+        System.out.println("test3");
         String[] args = {TEST3};
 
         Integer result = Stats.main(args);
-        assertEquals(RESULT_TEST3, result);*/
+        assertEquals(RESULT_TEST3, result);
     }
 
+    @Test
+    public void test4() throws Exception {
+        System.out.println("test4");
+        String[] args = {TEST4};
+
+        Integer result = Stats.main(args);
+        assertEquals(RESULT_TEST4, result);
+    }
+
+    @Test
+    public void test5() throws Exception {
+        System.out.println("test5");
+        String[] args = {TEST5};
+
+        Integer result = Stats.main(args);
+        assertEquals(RESULT_TEST5, result);
+    }
+
+    @Test
+    public void test6() throws Exception {
+        System.out.println("test6");
+        String[] args = {TEST6};
+
+        Integer result = Stats.main(args);
+        assertEquals(RESULT_TEST6, result);
+    }
+
+    @Test
+    public void test7() throws Exception {
+        System.out.println("test7");
+        String[] args = {TEST7};
+
+        Integer result = Stats.main(args);
+        assertEquals(RESULT_TEST7, result);
+    }
+    
+    @Test
+    @Ignore
+    public void test8() throws Exception {
+        System.out.println("test8");
+        String[] args = {TEST8};
+
+        Integer result = Stats.main(args);
+        assertEquals(RESULT_TEST8, result);
+    }
 }

@@ -10,7 +10,7 @@ import java.io.Reader;
  */
 class LineNumberReaderWrapper extends  LineNumberReader{
     
-    private static final int READ_AHEAD_LIMIT = 5;
+    private static final int READ_AHEAD_LIMIT = 6;
     
     public LineNumberReaderWrapper(Reader in, int bufferSize) {
         super(in, bufferSize);
