@@ -70,7 +70,7 @@ public class StatsUtils {
      * @throws FileNotFoundException
      * @throws IOException
      */
-    private static int getMedian(int numElements) throws FileNotFoundException, IOException {
+    private static int getMedianOdd(int numElements) throws FileNotFoundException, IOException {
         int medianPosition = numElements / 2;
         Reader reader = new FileReader(FINAL_CHUNK + TXT);
 
@@ -82,6 +82,31 @@ public class StatsUtils {
         Integer result = Integer.parseInt(file.readLine());
         reader.close();
         return result;
+    }
+
+    /**
+     *
+     * @param numElements number of elements in the final sorted file
+     * @return median of the final sorted file
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    private static int getMedianEven(int numElements) throws FileNotFoundException, IOException {
+
+        int medianPosition = numElements / 2;
+
+        Integer result;
+        Reader reader = new FileReader(FINAL_CHUNK + TXT);
+        LineNumberReaderWrapper file = new LineNumberReaderWrapper(reader, BUFFER_SIZE);
+        while (file.getLineNumber() < (medianPosition - 1)) {
+            file.moveLine();
+        }
+
+        result = Integer.parseInt(file.readLine());
+        result += Integer.parseInt(file.moveLine());
+
+        reader.close();
+        return result/2;
     }
 
     /**
@@ -125,6 +150,10 @@ public class StatsUtils {
             reader.get(i).close();
         }
 
-        return getMedian(numElems);
+        if (numElems % 2 == 0) {
+            return getMedianEven(numElems);
+        } else {
+            return getMedianOdd(numElems);
+        }
     }
 }

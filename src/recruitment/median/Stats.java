@@ -19,7 +19,6 @@ public class Stats {
     public static Integer main(String[] args) throws FileNotFoundException, IOException {
 
         String txt = args[0];
-
         int chunkId = 0;
         FileReader file = new FileReader(txt);
         Scanner src = new Scanner(file).useDelimiter(", ");

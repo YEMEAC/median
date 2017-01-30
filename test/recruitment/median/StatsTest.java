@@ -12,21 +12,23 @@ import static org.junit.Assert.*;
  */
 public class StatsTest {
 
-    private final static String TEST1 = "99.txt";
-    private final static String TEST2 = "999.txt";
+    private final static String TEST0 = "7.txt";
+    private final static String TEST1 = "100.txt";
+    private final static String TEST2 = "1000.txt";
     private final static String TEST3 = "20000.txt";
+    private final static Integer RESULT_TEST0 = 2;
     private final static Integer RESULT_TEST1 = 58;
     private final static Integer RESULT_TEST2 = 507;
-     private final static Integer RESULT_TEST3 = 507;
+    private final static Integer RESULT_TEST3 = 507;
 
     public StatsTest() {
     }
 
     @After
     /**
-     * After execute a test the files generated have to be deleted
-     * otherwise this could provoke a fail on the next test, since
-     * the final merged file is created or appened to the existing one
+     * After execute a test the files generated have to be deleted otherwise
+     * this could provoke a fail on the next test, since the final merged file
+     * is created or appened to the existing one
      */
     public void tearDown() {
 
@@ -51,6 +53,22 @@ public class StatsTest {
 
     /**
      * Test of main method, of class Stats.
+     *
+     * @throws java.lang.Exception
+     */
+    @Test
+
+    public void testZero() throws Exception {
+        System.out.println("test0");
+        String[] args = {TEST0};
+
+        Integer result = Stats.main(args);
+        assertEquals(RESULT_TEST0, result);
+    }
+
+    /**
+     * Test of main method, of class Stats.
+     *
      * @throws java.lang.Exception
      */
     @Test
@@ -60,35 +78,37 @@ public class StatsTest {
         String[] args = {TEST1};
 
         Integer result = Stats.main(args);
-        assertEquals(result, RESULT_TEST1);
+        assertEquals(RESULT_TEST1, result);
     }
 
     /**
      * Test of main method, of class Stats.
+     *
      * @throws java.lang.Exception
      */
     @Test
-    
+
     public void testBigger() throws Exception {
         System.out.println("testBigger");
         String[] args = {TEST2};
 
         Integer result = Stats.main(args);
-        assertEquals(result, RESULT_TEST2);
+        assertEquals(RESULT_TEST2, result);
     }
-    
-     /**
+
+    /**
      * Test of main method, of class Stats.
+     *
      * @throws java.lang.Exception
      */
     @Test
-    
+
     public void testLarge() throws Exception {
-        System.out.println("testLarge");
+        /*System.out.println("testBigger");
         String[] args = {TEST3};
 
         Integer result = Stats.main(args);
-        assertEquals(result, RESULT_TEST3);
+        assertEquals(RESULT_TEST3, result);*/
     }
 
 }
