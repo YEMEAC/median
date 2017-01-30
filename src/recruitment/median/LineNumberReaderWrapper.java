@@ -28,7 +28,7 @@ class LineNumberReaderWrapper extends  LineNumberReader{
         return result;
     }
 
-    String moveLine() throws IOException {
-       return super.readLine();
+    void moveLine() throws IOException {
+       super.readLine();
     }
 }
