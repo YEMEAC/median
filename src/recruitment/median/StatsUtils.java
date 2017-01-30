@@ -24,7 +24,7 @@ public class StatsUtils {
     /**
      *
      * @param chunks
-     * @return true if any of the file still has line to write
+     * @return true if any of the files still has line to write
      * @throws IOException
      */
     private static boolean chunksWithContent(List<LineNumberReaderWrapper> chunks) throws IOException {
@@ -37,10 +37,10 @@ public class StatsUtils {
     }
 
     /**
+     * Writes a txt file with the content of the chunk
      *
      * @param chunk list of integers already sorted
-     * @param chunkId chunk's id Writes a txt file with the content of the chunk
-     * with id chunkId
+     * @param chunkId chunk's id with id chunkId
      * @throws java.io.IOException
      */
     public static void writeChunkFile(List<Integer> chunk, int chunkId) throws IOException {
@@ -50,17 +50,30 @@ public class StatsUtils {
         bw.close();
     }
 
+    /**
+     * Writes the elem in the final sorted file
+     *
+     * @param elem
+     * @throws IOException
+     */
     public static void writeElementFinalFile(Integer elem) throws IOException {
-        FileWriter fw = new FileWriter(FINAL_CHUNK + TXT,true);
+        FileWriter fw = new FileWriter(FINAL_CHUNK + TXT, true);
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write(elem.toString() + System.getProperty(LINE_SEPARATOR));
         bw.close();
     }
 
-    private static final int getMedian(int numElements) throws FileNotFoundException, IOException {
+    /**
+     *
+     * @param numElements number of elements in the final sorted file
+     * @return median of the final sorted file
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    private static int getMedian(int numElements) throws FileNotFoundException, IOException {
         int medianPosition = numElements / 2;
         Reader reader = new FileReader(FINAL_CHUNK + TXT);
-        
+
         LineNumberReaderWrapper file = new LineNumberReaderWrapper(reader, BUFFER_SIZE);
         while (file.getLineNumber() < medianPosition) {
             file.moveLine();
@@ -71,6 +84,14 @@ public class StatsUtils {
         return result;
     }
 
+    /**
+     * Merge the diferent sorted chunks in one sorted file
+     *
+     * @param numberOfChunks
+     * @return median of the final sorted file
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public static Integer mergeChunks(int numberOfChunks) throws FileNotFoundException, IOException {
         List<LineNumberReaderWrapper> chunks = new ArrayList();
         List<Reader> reader = new ArrayList();
@@ -98,13 +119,12 @@ public class StatsUtils {
             ++numElems;
             writeElementFinalFile(minimum);
             chunks.get(idChunkChoosen).moveLine();
-
         }
 
         for (int i = 0; i < numberOfChunks; ++i) {
             reader.get(i).close();
         }
 
-       return getMedian(numElems);
+        return getMedian(numElems);
     }
 }
