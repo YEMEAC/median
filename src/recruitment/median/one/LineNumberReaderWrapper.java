@@ -1,4 +1,4 @@
-package recruitment.median;
+package recruitment.median.one;
 
 import java.io.IOException;
 import java.io.LineNumberReader;

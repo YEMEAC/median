@@ -1,4 +1,4 @@
-package recruitment.median;
+package recruitment.median.one;
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Yeison Melo <melo.yeison@gmail.com>
  */
-public class StatsUtils {
+public class StatsOneUtils {
 
     private static final String LINE_SEPARATOR = "line.separator";
     public static final String TXT = ".txt";

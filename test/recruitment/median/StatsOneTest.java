@@ -1,5 +1,7 @@
 package recruitment.median;
 
+import recruitment.median.one.StatsOneUtils;
+import recruitment.median.one.StatsOne;
 import java.io.File;
 import java.io.FileFilter;
 import org.junit.After;
@@ -11,7 +13,7 @@ import org.junit.Ignore;
  *
  * @author Yeison Melo <melo.yeison@gmail.com>
  */
-public class StatsTest {
+public class StatsOneTest {
 
     private final static String TEST1 = "test1.txt";
     private final static String TEST2 = "test2.txt";
@@ -36,7 +38,7 @@ public class StatsTest {
     private final static Integer RESULT_TEST10 = 5;
     private final static Integer RESULT_TEST11 = 3;
 
-    public StatsTest() {
+    public StatsOneTest() {
     }
 
     @After
@@ -51,7 +53,7 @@ public class StatsTest {
         final File folder = new File(".");
         File[] files = folder.listFiles(new FileFilter() {
             public boolean accept(File pathname) {
-                return (pathname.getName().startsWith(StatsUtils.CHUNK) && pathname.getName().endsWith(StatsUtils.TXT));
+                return (pathname.getName().startsWith(StatsOneUtils.CHUNK) && pathname.getName().endsWith(StatsOneUtils.TXT));
             }
         });
 
@@ -62,12 +64,12 @@ public class StatsTest {
         }
 
         //delete final file merged
-        File f = new File(StatsUtils.FINAL_CHUNK + StatsUtils.TXT);
+        File f = new File(StatsOneUtils.FINAL_CHUNK + StatsOneUtils.TXT);
         f.delete();
     }
 
     /**
-     * Test of main method, of class Stats.
+     * Test of main method, of class StatsOne.
      *
      * @throws java.lang.Exception
      */
@@ -77,7 +79,7 @@ public class StatsTest {
         System.out.println("test1");
         String[] args = {TEST1};
 
-        Integer result = Stats.main(args);
+        Integer result = StatsOne.main(args);
         assertEquals(RESULT_TEST1, result);
     }
 
@@ -86,7 +88,7 @@ public class StatsTest {
         System.out.println("test2");
         String[] args = {TEST2};
 
-        Integer result = Stats.main(args);
+        Integer result = StatsOne.main(args);
         assertEquals(RESULT_TEST2, result);
     }
 
@@ -95,7 +97,7 @@ public class StatsTest {
         System.out.println("test3");
         String[] args = {TEST3};
 
-        Integer result = Stats.main(args);
+        Integer result = StatsOne.main(args);
         assertEquals(RESULT_TEST3, result);
     }
 
@@ -104,7 +106,7 @@ public class StatsTest {
         System.out.println("test4");
         String[] args = {TEST4};
 
-        Integer result = Stats.main(args);
+        Integer result = StatsOne.main(args);
         assertEquals(RESULT_TEST4, result);
     }
 
@@ -113,7 +115,7 @@ public class StatsTest {
         System.out.println("test5");
         String[] args = {TEST5};
 
-        Integer result = Stats.main(args);
+        Integer result = StatsOne.main(args);
         assertEquals(RESULT_TEST5, result);
     }
 
@@ -122,7 +124,7 @@ public class StatsTest {
         System.out.println("test6");
         String[] args = {TEST6};
 
-        Integer result = Stats.main(args);
+        Integer result = StatsOne.main(args);
         assertEquals(RESULT_TEST6, result);
     }
 
@@ -131,7 +133,7 @@ public class StatsTest {
         System.out.println("test7");
         String[] args = {TEST7};
 
-        Integer result = Stats.main(args);
+        Integer result = StatsOne.main(args);
         assertEquals(RESULT_TEST7, result);
     }
 
@@ -141,7 +143,7 @@ public class StatsTest {
         System.out.println("test8");
         String[] args = {TEST8};
 
-        Integer result = Stats.main(args);
+        Integer result = StatsOne.main(args);
         assertEquals(RESULT_TEST8, result);
     }
 
@@ -150,7 +152,7 @@ public class StatsTest {
         System.out.println("test9");
         String[] args = {TEST9};
 
-        Integer result = Stats.main(args);
+        Integer result = StatsOne.main(args);
         assertEquals(RESULT_TEST9, result);
     }
 
@@ -159,7 +161,7 @@ public class StatsTest {
         System.out.println("test10");
         String[] args = {TEST10};
 
-        Integer result = Stats.main(args);
+        Integer result = StatsOne.main(args);
         assertEquals(RESULT_TEST10, result);
     }
 
@@ -168,7 +170,7 @@ public class StatsTest {
         System.out.println("test11");
         String[] args = {TEST11};
 
-        Integer result = Stats.main(args);
+        Integer result = StatsOne.main(args);
         assertEquals(RESULT_TEST11, result);
     }
 }

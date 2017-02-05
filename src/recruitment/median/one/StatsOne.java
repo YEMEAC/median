@@ -1,4 +1,4 @@
-package recruitment.median;
+package recruitment.median.one;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Yeison Melo <melo.yeison@gmail.com>
  */
-public class Stats {
+public class StatsOne {
 
     //Number of elements in memmory
     private static final int CHUNK_SIZE = 50;
@@ -29,7 +29,7 @@ public class Stats {
                 chunk.add(src.nextInt());
                 if (chunk.size() == CHUNK_SIZE || !src.hasNext()) {
                     QuickSort.quickSortRecursive(chunk, 0, chunk.size() - 1);
-                    StatsUtils.writeChunkFile(chunk, chunkId);
+                    StatsOneUtils.writeChunkFile(chunk, chunkId);
                     chunkId++;
                     chunk.clear();
                 }
@@ -38,6 +38,6 @@ public class Stats {
             }
         }
         file.close();
-        return StatsUtils.mergeChunks(chunkId);
+        return StatsOneUtils.mergeChunks(chunkId);
     }
 }
