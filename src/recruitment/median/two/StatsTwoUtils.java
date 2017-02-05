@@ -9,7 +9,7 @@ import java.util.Map;
  * 1. numElemns = number elemens in the original file. Sum(appearances.values)=numElemens
  * 2. Since the map is ordere by key, is like having the list of inputs already ordered but
  * whithout repeated numbers. So we just need to iterate over the map moving as many positions
- * as repetitions of a numbers we found (entry.value)
+ * as repetitions of a numbers we found (entry.value) 
  */
 public class StatsTwoUtils {
 
